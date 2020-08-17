@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  namenode:
+    image: hadoop-namenode:3.1.2
+    container_name: namenode
+    hostname: namenode
+    ports:
+      - "9870:9870"
+      - "9000:9000"
+    volumes:
+      - namenode:/opt/hadoop/dfs/name
+      - /tmp:/tmp
+    networks:
+      - bridge
+
+  datanode01:
+    image: hadoop-datanode:3.1.2
+    container_name: datanode01
+    hostname: datanode01
+    volumes:
+      - datanode01:/opt/hadoop/dfs/data
+    networks:
+      - bridge
+
+  datanode02:
+    image: hadoop-datanode:3.1.2
+    container_name: datanode02
+    hostname: datanode02
+    volumes:
+      - datanode02:/opt/hadoop/dfs/data
+    networks:
+      - bridge
+
+  datanode03:
+    image: hadoop-datanode:3.1.2
+    container_name: datanode03
+    hostname: datanode03
+    volumes:
+      - datanode03:/opt/hadoop/dfs/data
+    networks:
+      - bridge
+
+volumes:
+  namenode:
+  datanode01:
+  datanode02:
+  datanode03:
+
+networks:
+  bridge:
