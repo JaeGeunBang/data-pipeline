@@ -11,8 +11,6 @@ services:
     volumes:
       - namenode:/opt/hadoop/dfs/name
       - /tmp:/tmp
-    networks:
-      - bridge
 
   datanode01:
     image: hadoop-datanode:3.1.2
@@ -20,8 +18,6 @@ services:
     hostname: datanode01
     volumes:
       - datanode01:/opt/hadoop/dfs/data
-    networks:
-      - bridge
 
   datanode02:
     image: hadoop-datanode:3.1.2
@@ -29,8 +25,6 @@ services:
     hostname: datanode02
     volumes:
       - datanode02:/opt/hadoop/dfs/data
-    networks:
-      - bridge
 
   datanode03:
     image: hadoop-datanode:3.1.2
@@ -38,14 +32,9 @@ services:
     hostname: datanode03
     volumes:
       - datanode03:/opt/hadoop/dfs/data
-    networks:
-      - bridge
 
 volumes:
   namenode:
   datanode01:
   datanode02:
   datanode03:
-
-networks:
-  bridge:
