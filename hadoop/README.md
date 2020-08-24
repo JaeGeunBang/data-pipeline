@@ -46,10 +46,10 @@ sudo docker-compose up -d
 
 `C:\Windows\System32\drivers\etc` 경로에 아래 내용을 등록한다.
 
-127.0.0.1 namenode
-127.0.0.1 datanode01
-127.0.0.1 datanode02
-127.0.0.1 datanode03
+127.0.0.1 namenode <br>
+127.0.0.1 datanode01 <br>
+127.0.0.1 datanode02 <br>
+127.0.0.1 datanode03 <br>
 
 hosts 파일에 hadoop 정보를 등록해놔야 나중에 데이터를 다운 받거나 할 수 있다.
 

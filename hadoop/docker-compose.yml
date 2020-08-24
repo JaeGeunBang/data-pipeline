@@ -12,32 +12,40 @@ services:
       - namenode:/opt/hadoop/dfs/name
       - /tmp:/tmp
     networks:
-      - bridge
+      - fluentd_hadoop
 
   datanode01:
     image: hadoop-datanode:3.1.2
     container_name: datanode01
     hostname: datanode01
+    ports:
+      - "9864:9864"
     volumes:
       - datanode01:/opt/hadoop/dfs/data
     networks:
-      - bridge
+      - fluentd_hadoop
 
   datanode02:
     image: hadoop-datanode:3.1.2
     container_name: datanode02
     hostname: datanode02
+    ports:
+      - "9865:9864"
     volumes:
       - datanode02:/opt/hadoop/dfs/data
     networks:
-      - bridge
+      - fluentd_hadoop
 
   datanode03:
     image: hadoop-datanode:3.1.2
     container_name: datanode03
     hostname: datanode03
+    ports:
+      - "9866:9864"
     volumes:
       - datanode03:/opt/hadoop/dfs/data
+    networks:
+      - fluentd_hadoop
 
 volumes:
   namenode:
@@ -46,4 +54,4 @@ volumes:
   datanode03:
 
 networks:
-  bridge:
+  fluentd_hadoop:
