@@ -60,3 +60,12 @@ hosts 파일에 hadoop 정보를 등록해놔야 나중에 데이터를 다운 �
 https://www.stefaanlippens.net/hadoop-3-default-ports.html
 
 위 포트를 참고한다. Hadoop 2.0이랑 Port가 많이 다르다.
+
+
+
+### Hadoop, Yarn Docker 
+
+https://github.com/big-data-europe/docker-hadoop/tree/master/base
+
+아래 링크를 통해 Docker로 셋팅한 Hadoop, Yarn Docker를 볼수있다.
+
