@@ -1,4 +1,4 @@
-FROM hadoop-base:3.1.2
+FROM hadoop_base:3.1.2
 
 ADD hdfs-site.xml /etc/hadoop/
 

@@ -2,7 +2,7 @@ version: "3"
 
 services:
   namenode:
-    image: hadoop-namenode:3.1.2
+    image: hadoop_namenode:3.1.2
     container_name: namenode
     hostname: namenode
     ports:
@@ -15,7 +15,7 @@ services:
       - fluentd_hadoop
 
   datanode01:
-    image: hadoop-datanode:3.1.2
+    image: hadoop_datanode:3.1.2
     container_name: datanode01
     hostname: datanode01
     ports:
@@ -25,33 +25,26 @@ services:
     networks:
       - fluentd_hadoop
 
-  datanode02:
-    image: hadoop-datanode:3.1.2
-    container_name: datanode02
-    hostname: datanode02
+  resourcemanager:
+    image: hadoop_resourcemanager:3.1.2
+    container_name: resourcemanager
+    hostname: resourceamanager
     ports:
-      - "9865:9864"
-    volumes:
-      - datanode02:/opt/hadoop/dfs/data
+      - "8088:8088"
+      - "8031:8031"
     networks:
       - fluentd_hadoop
 
-  datanode03:
-    image: hadoop-datanode:3.1.2
-    container_name: datanode03
-    hostname: datanode03
-    ports:
-      - "9866:9864"
-    volumes:
-      - datanode03:/opt/hadoop/dfs/data
+  nodemanager01:
+    image: hadoop_nodemanager:3.1.2
+    container_name: nodemanager01
+    hostname: nodemanager01
     networks:
       - fluentd_hadoop
 
 volumes:
   namenode:
   datanode01:
-  datanode02:
-  datanode03:
 
 networks:
   fluentd_hadoop:

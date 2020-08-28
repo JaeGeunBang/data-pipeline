@@ -10,4 +10,4 @@ else
   $HADOOP_PREFIX/bin/hdfs --config $HADOOP_CONF_DIR namenode -format
 fi
 
-$HADOOP_PREFIX/bin/hdfs --config $HADOOP_CONF_DIR namenode
+$HADOOP_PREFIX/bin/hdfs --config $HADOOP_CONF_DIR namenode && $HADOOP_PREFIX/bin/yarn resourcemanager

@@ -1,6 +1,6 @@
 FROM azul/zulu-openjdk:8
 
-RUN apt-get update && apt-get install -y curl 
+RUN apt-get update && apt-get install -y curl && apt-get install -y vim
 
 ENV HADOOP_VERSION=3.2.1
 ENV HADOOP_URL=http://mirror.apache-kr.org/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz

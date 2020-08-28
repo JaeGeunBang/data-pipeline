@@ -48,10 +48,10 @@ sudo docker-compose up -d
 
 127.0.0.1 namenode <br>
 127.0.0.1 datanode01 <br>
-127.0.0.1 datanode02 <br>
-127.0.0.1 datanode03 <br>
+127.0.0.1 resourcemanager <br>
+127.0.0.1 nodemanager01 <br>
 
-hosts 파일에 hadoop 정보를 등록해놔야 나중에 데이터를 다운 받거나 할 수 있다.
+hosts 파일에 hadoop 정보를 등록해놔야 나중에 데이터를 다운 받거나 Web UI에 접속할 수 있다.
 
 
 
