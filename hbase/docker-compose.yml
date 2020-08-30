@@ -1,0 +1,58 @@
+version: "3"
+
+services:
+  zookeeper:
+    image: hbase_zookeeper:2.3.1
+    container_name: hbase_zookeeper
+    hostname: hbase_zookeeper
+    ports:
+      - "16011:16011"
+      
+  master:
+    image: hbase_master:2.3.1
+    container_name: hbase_master
+    hostname: hbase_master
+    ports:
+      - "16010:16010"
+    volumes:
+      - master:/opt/hbase/volumes/master
+      - /data/hbase/logs/master:/opt/hbase/logs 
+
+  region:
+    image: hbase_region:2.3.1
+    container_name: hbase_region
+    hostname: hbase_region
+    volumes:
+      - region:/opt/hbase/volumes/region
+      - /data/hbase/logs/region:/opt/hbase/logs 
+
+  rest:
+    image: hbase_rest:2.3.1
+    container_name: hbase_rest
+    hostname: hbase_rest
+    volumes:
+      - rest:/opt/hbase/volumes/rest
+      - /data/hbase/logs/rest:/opt/hbase/logs    
+    ports:
+      - "8085:8085"
+  
+  thrift:
+    image: hbase_thrift:2.3.1
+    container_name: hbase_thrift
+    hostname: hbase_thrift
+    volumes:
+      - thrift:/opt/hbase/volumes/thrift
+      - /data/hbase/logs/thrift:/opt/hbase/logs 
+    ports:
+      - "9095:9095"
+
+volumes:
+  master:
+  region:
+  rest:
+  thrift:
+
+networks:
+  default:
+    external:
+      name: hadoop_fluentd_hadoop
